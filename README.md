@@ -15,4 +15,11 @@
 
 3. Jika sudah, coba akses **localhost/"nama folder baru"**
 
+# PERLU DIPERHATIKAN!!!
+
+1. Selalu lakukan **Commit and Push** saat selesai melakukan editing.
+2. Selalu cek apakah ada perubahan **(Pull)** dari repository.
+3. Aplikasi yang digunakan adalah **GitHub Desktop**
+4. Informasikan kepada anggota lain jika akan melakukan editing, agar tidak terjadi conflict.
+
 ## Semangat
