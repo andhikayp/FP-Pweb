@@ -323,12 +323,12 @@
                 </div>
             </div>
         </nav>
-        <br><br><br><br><br>
+        
         <main class="py-4">
             @include('layouts.partials._alerts')
             @yield('content')
         </main>
-        <br><br><br><br><br>
+        <br><br>
         <footer class="bg-black small text-center text-dark">
                   <div class="container" style="font-size: 16px">
                     Copyright &copy; NETIJEN 2018
