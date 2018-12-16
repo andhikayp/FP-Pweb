@@ -210,48 +210,48 @@
     !function(obj){window.hr_metrics=obj,obj.externalService=function(event_type,event_value,attrs,service){attrs="undefined"!=typeof attrs?attrs:{},attrs.session_id=jsCookies.get("session_id"),service="undefined"!=typeof service?service:"mixpanel:heap",external_services=service.split(":"),-1!=jQuery.inArray("mixpanel",external_services)&&mixpanel.push([event_type,event_value,attrs]),-1!=jQuery.inArray("heap",external_services)&&"track"==event_type&&heap.track(event_value,attrs)},obj.track=function(event_name,event_value,attrs){metrics_endpoint="https://metrics.hackerrank.com/metrics",window.HR&&window.HR.development&&(metrics_endpoint="/metrics"),common_attrs={session_id:jsCookies.get("session_id")},attrs=jQuery.extend({},attrs,common_attrs),jQuery.ajax({type:"POST",url:metrics_endpoint,crossDomain:!0,xhrFields:{withCredentials:!0},data:{event_name:event_name,event_value:event_value,uid:jsCookies.get("hackerrank_mixpanel_token"),uid_token:jsCookies.get("metrics_user_identifier"),params:attrs}})},obj.track_dwell_time=function(pathname){if(window.navigation_data&&window.navigation_data.page==pathname){var time_now=(new Date).getTime();hr_metrics.track("DwellTime",pathname,{attribute7:parseInt((time_now-(window.navigation_data.time||time_now))/1e3)})}},obj.set_navigation_data=function(pathname){window.navigation_data={page:pathname||document.location.pathname,time:(new Date).getTime()}},obj.set_scrolling_data=function(){var _pathname=document.location.pathname,_window_height=$(window).height(),_document_height=$(document).height(),_scrollable_height=_document_height-_window_height+1,_scrolled_height=$(document).scrollTop(),_scrolled_percentage=parseInt(100*_scrolled_height/_scrollable_height);(!hr_metrics.scroll_data||hr_metrics.scroll_data.pathname!=_pathname||hr_metrics.scroll_data.scrolled_percentage<_scrolled_percentage||hr_metrics.scroll_data.scrolled_height<_scrolled_height)&&(hr_metrics.scroll_data={pathname:_pathname,scrollable_height:_scrollable_height,scrolled_height:_scrolled_height,scrolled_percentage:_scrolled_percentage,window_height:_window_height,document_percentage:100*(_window_height+_scrolled_height)/(_document_height+1),scroll_tracked:!1})}}(window.hr_metrics||{}),function(){"function"==typeof $&&$(document).ready(function(){var _pathname=document.location.pathname;if(hr_metrics.track("PageLoad",_pathname+document.location.search,{attribute1:_pathname}),hr_metrics.track_dwell_time&&(hr_metrics.track_dwell_time(_pathname),hr_metrics.set_navigation_data()),$(window).on("beforeunload",function(){var _pathname=document.location.pathname;hr_metrics.track("PageClose",_pathname+document.location.search,{attribute2:_pathname}),hr_metrics.track_dwell_time&&hr_metrics.track_dwell_time(_pathname),window.HR&&window.HR.time_to_solve&&window.HR.time_to_solve.finish&&window.HR.time_to_solve.finish(),window.typingTimeout&&(window.clearTimeout(window.typingTimeout),window.triggerTypingEvent&&window.typingEventEnabled&&window.triggerTypingEvent())}),window.HR.pause_event=function(){window.HR&&window.HR.time_to_solve&&window.HR.time_to_solve.pause&&window.HR.time_to_solve.pause()},window.HR.unpause_event=function(){window.HR&&window.HR.time_to_solve&&window.HR.time_to_solve.unpause&&window.HR.time_to_solve.unpause()},window.HR.throttled_time_to_solve_unpause=_.throttle(function(){window.HR&&window.HR.time_to_solve&&(window.HR.time_to_solve.paused&&window.HR.time_to_solve.unpause(),window.HR.time_to_solve.update(),window.HR.time_to_solve_timeout&&window.clearTimeout(window.HR.time_to_solve_timeout),window.HR.time_to_solve_timeout=window.setTimeout(function(){window.HR&&window.HR.pause_event&&window.HR.pause_event()},3e4))},2e3),$(window).on("blur",function(){window.HR.pause_event()}),$(window).on("focus",function(){window.HR.unpause_event()}),$(window).on("keydown mousemove scroll",function(){window.HR.throttled_time_to_solve_unpause()}),"function"==typeof _){var throttled_scroll=_.throttle(function(){hr_metrics.set_scrolling_data(),hr_metrics.scroll_data&&!hr_metrics.scroll_data.scroll_tracked&&(hr_metrics.scroll_data.scroll_tracked=!0,hr_metrics.track("PageScroll",hr_metrics.scroll_data.pathname+document.location.search,{attribute1:hr_metrics.scroll_data.pathname,attribute2:hr_metrics.scroll_data.window_height,attribute7:hr_metrics.scroll_data.scrolled_percentage,attribute8:hr_metrics.scroll_data.scrolled_height,attribute9:hr_metrics.scroll_data.scrollable_height,attribute10:hr_metrics.scroll_data.document_percentage}))},2e3),throttled_data_set=_.throttle(hr_metrics.set_scrolling_data,200);$(window).on("scroll",function(){throttled_data_set(),throttled_scroll()}),$("body,html").on("scroll",function(){throttled_data_set(),throttled_scroll()})}})}();
     </script>
 </head>
-<body>
-        <nav class="navbar navbar-expand-md navbar-light bg-primary fixed-top" {{-- style="background-color: #e3f2fd; --}}">
+<body style="padding-top: 78px;">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-image: linear-gradient(90deg, rgb(0,41,119), rgb(73,22,71)); height:75px;">
                 <div class="container">
-                <a class="mr-4 text-white" href="{{ url('/') }}" style="font-size: 20px"><b>NETIJEN</b></a>
+                <a class="mr-4 text-white" href="{{ url('/') }}" style="font-size: 22px; font-family: 'Fredoka One', sans-serif;"><b>Manusia Online</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon" style="border-color: white;"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-family: 'Niramit',sans-serif;">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 16px">
-                                  Categories
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 18px; color:white;">
+                                Kategori
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="NavbarDropdown">
                                 
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='1')}}" >Story</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='2')}}">Hobby</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='1')}}" >Cerita</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='2')}}">Hobi</a>
                                     <a class="dropdown-item" href="{{route('kategori.search', $category='3')}}" >Games</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='4')}}">Entertainment</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='5')}}" >Female</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='6')}}">Tech</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}" >Automotive</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='8')}}">Sports</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='9')}}" >Food & Drink</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='10')}}">Travel</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}" >News</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='4')}}">Hiburan</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='5')}}" >Perempuan</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='6')}}">Teknologi</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}" >Otomotif</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='8')}}">Olahraga</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='9')}}" >Kuliner</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='10')}}">Perjalanan</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}" >Berita</a>
                                 
                                 </div>
-                              </li>
+                            </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link mr-3" href="{{ route('home.index') }}" style="font-size: 16px">Home</a>
+                                <a class="nav-link mr-3" href="{{ route('home.index') }}" style="font-size: 18px; color:white;">Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mr-3" href="{{ route('post.create') }}" style="font-size: 16px">{{ __('Write a Blog') }}</a>
+                                <a class="nav-link mr-3" href="{{ route('post.create') }}" style="font-size: 18px; color:white;">{{ __('Pos Baru') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link mr-3" href="{{ route('post.index') }}" style="font-size: 16px">Posts</a>
+                                <a class="nav-link mr-3" href="{{ route('post.index') }}" style="font-size: 18px; color:white;">Pos</a>
                             </li>
                         @endguest
                     </ul>
@@ -259,54 +259,54 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}" style="font-size: 16px">{{ __('Login') }}</a>
+                            <li class="nav-item" style="margin-right: 15px;">
+                                <a class="nav-link" href="{{ route('login') }}" style="font-size: 18px; color:white;font-weight: bold;">{{ __('Masuk') }}</a>
                             </li>  
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}" style="font-size: 16px">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="font-size: 18px; color:white;">{{ __('Daftar') }}</a>
                                 @endif
                             </li>
                         @else
                             
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 16px">
-                                  Categories
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 18px; color:white;">
+                                Kategori
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="NavbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="NavbarDropdown" style="font-size: 15px;">
                                     {{-- <a href="{{ route('post.edit', $post)}}">Edit</a> --}}
                                 <form action="" method="get">
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='1')}}">Story</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='2')}}">Hobby</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='3')}}">Games</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='4')}}">Entertainment</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='5')}}">Female</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='6')}}">Tech</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}">Automotive</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='8')}}">Sports</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='9')}}">Food & Drink</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='10')}}">Travel</a>
-                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}">News</a>
-                                  {{-- <div class="dropdown-divider"></div>
-                                  <a class="dropdown-item" href="#">Something else here</a> --}}
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='1')}}">Cerita</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='2')}}">Hobi</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='3')}}">Permainan</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='4')}}">Hiburan</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='5')}}">Perempuan</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='6')}}">Teknologi</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}">Otomotif</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='8')}}">Olahraga</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='9')}}">Kuliner</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='10')}}">Perjalanan</a>
+                                    <a class="dropdown-item" href="{{route('kategori.search', $category='7')}}">Berita</a>
+                                {{-- <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a> --}}
                                 </form>
                                 </div>
-                              </li>
+                            </li>
                             {{-- <li class="nav-item">
                                 <img src="{{ asset('storage/'.auth()->user()->avatar)}}" alt="" style="width: 40px; height: 40px; border-radius: 50%; margin-left: 10px">
                             </li> --}}
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class=" nav-link dropdown-toggle ml-4 mr-4" style="font-size: 16px" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class=" nav-link dropdown-toggle ml-4 mr-4" style="font-size: 18px; color:white;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
                                     {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
                                 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                     <a class="nav-link dropdown-item" href="{{ route('user.edit') }}">{{ __('Edit Profile') }}</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-size: 15px;">
+                                    <a class="dropdown-item" href="{{ route('user.edit') }}">{{ __('Sunting Profil') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Keluar') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -315,8 +315,8 @@
                                 </div>
                             </li>
                             <form class="form-inline" action="{{route('post.cari')}}" method="get">
-                                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search Username" aria-label="Search">
-                                <button class="btn btn-outline-white my-2 my-sm-0" type="submit">Search</button>
+                                <input style="border-radius:12px; font-size:13px;" class="form-control mr-sm-2" type="search" name="search" placeholder="Cari Pengguna" aria-label="Search">
+                                <button class="btn btn-outline-white my-2 my-sm-0" type="submit">Cari</button>
                             </form>
                         @endguest
                     </ul>
@@ -330,9 +330,9 @@
         </main>
         <br><br>
         <footer class="bg-black small text-center text-dark">
-                  <div class="container" style="font-size: 16px">
-                    Copyright &copy; NETIJEN 2018
-                  </div>
+                <div class="container" style="font-size: 16px">
+                    Copyright &copy; Manusia Online 2018
+                </div>
                 </footer>
                 <br><br>
 </body>

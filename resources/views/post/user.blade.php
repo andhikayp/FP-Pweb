@@ -10,8 +10,8 @@
 	        <div class="col-md-8">
 	            @foreach ($users as $post)
 	            <div class="media border p-3">
-				  <img src="{{ asset('storage/'.$post->avatar)}}" alt="" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-				  <div class="media-body"><br>
+				<img src="{{ asset('storage/'.$post->avatar)}}" alt="" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+				<div class="media-body"><br>
 				    <a href="{{ route('home.id', $post)}}" class="" style="font-size: 18px;">{{ $post->username}}</a>
 				    <p>My name is {{$post->name}}</p>
 					<p>
@@ -22,7 +22,7 @@
 			            @if($post->posts()->get()->count() == null) Don't have a post!
 			            @endif
 		            </p>
-				  </div>
+				</div>
 				</div>
 				@endforeach
 				{!! $users->render()!!}

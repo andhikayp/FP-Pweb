@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
+});
+
+Route::get('/notes', function() {
+	return view('catatan');
 });
 
 Auth::routes(['verify' => true]);

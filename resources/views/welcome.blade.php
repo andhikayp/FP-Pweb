@@ -1,11 +1,10 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>NETIJEN</title>
+        <title>Manusia Online</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -76,40 +75,40 @@
         
     </head>
     
-    <body>
+<body>
         <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger text-white" href="{{ url('/') }}">NETIJEN</a>
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger text-white" href="{{ url('/') }}">Manusia Online</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger text-white" href="{{route('home.about')}}">About</a>
+            <a class="nav-link js-scroll-trigger text-white" href="{{route('home.about')}}">Tentang</a>
             </li>
-             @if (Route::has('login'))
-              {{--   <div class="top-right links"> --}}
+            @if (Route::has('login'))
+            {{--   <div class="top-right links"> --}}
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link disabled text-white" href="{{ url('/home') }}"><h6>Home</h6></a>
+                        <a class="nav-link disabled text-white" href="{{ url('/home') }}"><h6>Beranda</h6></a>
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link disabled text-white" href="{{ route('login') }}"><h6>Login</h6></a>
+                        <a class="nav-link disabled text-white" href="{{ route('login') }}"><h6>Masuk</h6></a>
                     </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link disabled text-white" href="{{ route('register') }}"><h6>Register</h6></a>
+                            <a class="nav-link disabled text-white" href="{{ route('register') }}"><h6>Daftar</h6></a>
                         </li>
                         @endif
                     @endauth
             {{--     </div> --}}
             @endif
-          </ul>
+        </ul>
         </div>
-      </div>
+    </div>
     </nav>
 
             <div class="content">
@@ -117,22 +116,21 @@
                 <!-- Header -->
 
                 <header class="masthead">
-                  <div class="container d-flex h-100 align-items-center">
+                <div class="container d-flex h-100 align-items-center">
                     <div class="mx-auto text-center">
-                      <img src="img/logo.png" alt="">
-                      <h1 class="mx-auto my-0 text-uppercase">Netijen</h1>
-                      <h2 class="text-white-50 mx-auto mt-2 mb-5">Situs berkumpulnya para netizen untuk membicarakan trending topic masalah terkini</h2>
-                      <div class="">
-           
-        </div>
+                    <img src="img/logo.png" alt="">
+                    <h1 class="mx-auto my-0 text-uppercase">Manusia Online</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Situs berkumpulnya para netizen untuk membicarakan trending topic masalah terkini</h2>
+                    <div class="">
                     </div>
-                  </div>
+                    </div>
+                </div>
                 </header>
                 <!-- Footer -->
                 <footer class="bg-black small text-center text-white-50">
-                  <div class="container">
-                    Copyright &copy; NETIJEN 2018
-                  </div>
+                <div class="container">
+                    Copyright &copy; Manusia Online 2018
+                </div>
                 </footer>
 
                 <!-- Bootstrap core JavaScript -->
@@ -146,6 +144,6 @@
                 <script src="js/grayscale.min.js"></script>
             </div>
         
-    </body>
+</body>
 </html>
 
