@@ -37,6 +37,16 @@
                         <tr style="text-align: left;">
                             <td><a href="{{ route('post.show', $post)}}">{{$post->title}}</a></td>
                             <!--<td><a href="{{ route('post.show', $post)}}" class="btn btn-primary">Baca</a></td>-->
+                            <td class="pull-right"><br><br>
+                                <a href="{{ route('post.edit', $post)}}">
+                                    <button type="submit" class="btn btn-xs btn-outline-success btn-block">Edit</button> 
+                                </a><br>
+                                <form class="" action="{{ route('post.destroy', $post)}}" method="post">
+                                    {{ csrf_field()}}
+                                    {{ method_field('DELETE')}}
+                                    <button type="submit" class="btn btn-xs btn-outline-danger btn-block">Delete</button> 
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     </table>

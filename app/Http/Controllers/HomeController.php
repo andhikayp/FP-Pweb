@@ -32,26 +32,32 @@ class HomeController extends Controller
         // return redirect()->route('post.index')->with('success','You are log in');
     }
 
+    // public function id(Request $request, $post)
+    // {
+    //     $users = DB::select('select * from posts where user_id = :user_id', ['user_id' => $post]);
+    //     // $user = DB::table('posts')->where('user_id', $post);
+    //     // dd($user);
+    //     $sembarang = User::find($post);
+    //     // dd($sembarang);
+    //     // return view('id', ['users' => $users]);
+
+    //     // dd($post);
+
+    //     // // $post= Post::all();
+        
+    //     // // $user_id =  $post->user_id;
+    //     // $user = Post::find('2');
+    //     // dd($user);
+    //     return view('id',compact('users', 'sembarang'));
+    //     // return view('id')->with('posts', $users->posts);   
+    // }
     public function id(Request $request, $post)
     {
-        $users = DB::select('select * from posts where user_id = :user_id', ['user_id' => $post]);
-        // $user = DB::table('posts')->where('user_id', $post);
-        // dd($user);
+        $posts = Post::where('user_id', $post)->paginate(5);
         $sembarang = User::find($post);
-        // dd($sembarang);
-        // return view('id', ['users' => $users]);
-
-        // dd($post);
-
-        // // $post= Post::all();
-        
-        // // $user_id =  $post->user_id;
-        // $user = Post::find('2');
-        // dd($user);
-        return view('id',compact('users', 'sembarang'));
-        // return view('id')->with('posts', $users->posts);   
+        return view('id',compact('posts', 'sembarang'));
     }
-
+    
     public function about()
     {
         return view('about');
