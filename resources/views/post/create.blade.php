@@ -36,12 +36,9 @@
 			<div class="col-md-8 offset-md-2 shadow-lg" id="form-box">			
 				<form action="{{ route('post.store')}}" method="post" class="" enctype="multipart/form-data">
 					{{ csrf_field()}}
-					<div class="form-group has-feedback{{ $errors->has('title') ? 'has-error' : ''}}">
+					<div class="form-group has-feedback">
 						<label for="" class="tex">Judul</label>
 						<input type="text" class="form-control inp" name="title" placeholder="Judul Pos" value="{{ old('title')}}">
-						@if($errors->has('title'))
-							<span class="help-block"><p>{{ $errors->first('title')}}</p></span>
-						@endif
 					</div>
 					<div class="form-group">
 						<label for="" class="tex">Kategori</label>
@@ -52,20 +49,16 @@
 							@endforeach
 						</select>
 					</div>
-					<div class="form-group has-feedback{{ $errors->has('content') ? 'has-error' : ''}}">
+					<div class="form-group has-feedback">
 						<label for="" class="tex">Konten</label>
 						<textarea class="form-control inp" name="content" id='article-ckeditor' cols="" rows="5" placeholder="Konten Pos" value="{{ old('content')}}"></textarea>
-						@if($errors->has('content'))
-							<span class="help-block"><p>{{ $errors->first('content')}}</p></span>
-						@endif
+						
 					</div>
 					<div class="form-group">
 					<label for="avatar" class="tex">Gambar/Foto</label>
 						<div class="custom-file">
-							<input type="file" class="custom-file-input form-control{{ $errors->has('avatar') ? ' is-invalid' : '' }}" id="avatar" name="avatar">
-							@if ($errors->has('avatar'))
-								<span class="invalid-feedback" role="alert"><strong>{{ $errors->first('avatar') }}</strong></span>
-							@endif
+							<input type="file" class="custom-file-input form-control" id="avatar" name="avatar">
+		
 							<label class="custom-file-label" for="customFile">Pilih File</label>
 						</div> 
 					</div>

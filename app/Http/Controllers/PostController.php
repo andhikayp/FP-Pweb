@@ -16,11 +16,11 @@ class PostController extends Controller
 
     public function store(Request $request){
     	// validasi data ketika null
-    	$this->validate(request(),[
-    		'title' => 'required',
-    		'content' => 'required|min:10',
-            'avatar' => 'image|nullable|max:1999'
-    	]);
+    	// $this->validate(request(),[
+    	// 	'title' => 'required',
+    	// 	'content' => 'required|min:10',
+        //     'avatar' => 'image|nullable|max:1999'
+    	// ]);
         //Handle File Upload
         if ($request->hasFile('avatar')) {
             $filenameWithExt = $request->file('avatar')->getClientOriginalName();
