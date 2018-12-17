@@ -1,0 +1,7 @@
+.body-padding {
+    padding-top: 85px;
+    scroll-behavior: smooth;
+}
+.navnav {
+    background-image: linear-gradient(90deg, rgb(0,41,119), rgb(73,22,71));
+}

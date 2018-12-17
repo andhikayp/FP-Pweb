@@ -10,7 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script> --}}
 
     <!-- Fonts -->
@@ -19,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -210,8 +212,8 @@
     !function(obj){window.hr_metrics=obj,obj.externalService=function(event_type,event_value,attrs,service){attrs="undefined"!=typeof attrs?attrs:{},attrs.session_id=jsCookies.get("session_id"),service="undefined"!=typeof service?service:"mixpanel:heap",external_services=service.split(":"),-1!=jQuery.inArray("mixpanel",external_services)&&mixpanel.push([event_type,event_value,attrs]),-1!=jQuery.inArray("heap",external_services)&&"track"==event_type&&heap.track(event_value,attrs)},obj.track=function(event_name,event_value,attrs){metrics_endpoint="https://metrics.hackerrank.com/metrics",window.HR&&window.HR.development&&(metrics_endpoint="/metrics"),common_attrs={session_id:jsCookies.get("session_id")},attrs=jQuery.extend({},attrs,common_attrs),jQuery.ajax({type:"POST",url:metrics_endpoint,crossDomain:!0,xhrFields:{withCredentials:!0},data:{event_name:event_name,event_value:event_value,uid:jsCookies.get("hackerrank_mixpanel_token"),uid_token:jsCookies.get("metrics_user_identifier"),params:attrs}})},obj.track_dwell_time=function(pathname){if(window.navigation_data&&window.navigation_data.page==pathname){var time_now=(new Date).getTime();hr_metrics.track("DwellTime",pathname,{attribute7:parseInt((time_now-(window.navigation_data.time||time_now))/1e3)})}},obj.set_navigation_data=function(pathname){window.navigation_data={page:pathname||document.location.pathname,time:(new Date).getTime()}},obj.set_scrolling_data=function(){var _pathname=document.location.pathname,_window_height=$(window).height(),_document_height=$(document).height(),_scrollable_height=_document_height-_window_height+1,_scrolled_height=$(document).scrollTop(),_scrolled_percentage=parseInt(100*_scrolled_height/_scrollable_height);(!hr_metrics.scroll_data||hr_metrics.scroll_data.pathname!=_pathname||hr_metrics.scroll_data.scrolled_percentage<_scrolled_percentage||hr_metrics.scroll_data.scrolled_height<_scrolled_height)&&(hr_metrics.scroll_data={pathname:_pathname,scrollable_height:_scrollable_height,scrolled_height:_scrolled_height,scrolled_percentage:_scrolled_percentage,window_height:_window_height,document_percentage:100*(_window_height+_scrolled_height)/(_document_height+1),scroll_tracked:!1})}}(window.hr_metrics||{}),function(){"function"==typeof $&&$(document).ready(function(){var _pathname=document.location.pathname;if(hr_metrics.track("PageLoad",_pathname+document.location.search,{attribute1:_pathname}),hr_metrics.track_dwell_time&&(hr_metrics.track_dwell_time(_pathname),hr_metrics.set_navigation_data()),$(window).on("beforeunload",function(){var _pathname=document.location.pathname;hr_metrics.track("PageClose",_pathname+document.location.search,{attribute2:_pathname}),hr_metrics.track_dwell_time&&hr_metrics.track_dwell_time(_pathname),window.HR&&window.HR.time_to_solve&&window.HR.time_to_solve.finish&&window.HR.time_to_solve.finish(),window.typingTimeout&&(window.clearTimeout(window.typingTimeout),window.triggerTypingEvent&&window.typingEventEnabled&&window.triggerTypingEvent())}),window.HR.pause_event=function(){window.HR&&window.HR.time_to_solve&&window.HR.time_to_solve.pause&&window.HR.time_to_solve.pause()},window.HR.unpause_event=function(){window.HR&&window.HR.time_to_solve&&window.HR.time_to_solve.unpause&&window.HR.time_to_solve.unpause()},window.HR.throttled_time_to_solve_unpause=_.throttle(function(){window.HR&&window.HR.time_to_solve&&(window.HR.time_to_solve.paused&&window.HR.time_to_solve.unpause(),window.HR.time_to_solve.update(),window.HR.time_to_solve_timeout&&window.clearTimeout(window.HR.time_to_solve_timeout),window.HR.time_to_solve_timeout=window.setTimeout(function(){window.HR&&window.HR.pause_event&&window.HR.pause_event()},3e4))},2e3),$(window).on("blur",function(){window.HR.pause_event()}),$(window).on("focus",function(){window.HR.unpause_event()}),$(window).on("keydown mousemove scroll",function(){window.HR.throttled_time_to_solve_unpause()}),"function"==typeof _){var throttled_scroll=_.throttle(function(){hr_metrics.set_scrolling_data(),hr_metrics.scroll_data&&!hr_metrics.scroll_data.scroll_tracked&&(hr_metrics.scroll_data.scroll_tracked=!0,hr_metrics.track("PageScroll",hr_metrics.scroll_data.pathname+document.location.search,{attribute1:hr_metrics.scroll_data.pathname,attribute2:hr_metrics.scroll_data.window_height,attribute7:hr_metrics.scroll_data.scrolled_percentage,attribute8:hr_metrics.scroll_data.scrolled_height,attribute9:hr_metrics.scroll_data.scrollable_height,attribute10:hr_metrics.scroll_data.document_percentage}))},2e3),throttled_data_set=_.throttle(hr_metrics.set_scrolling_data,200);$(window).on("scroll",function(){throttled_data_set(),throttled_scroll()}),$("body,html").on("scroll",function(){throttled_data_set(),throttled_scroll()})}})}();
     </script>
 </head>
-<body style="padding-top: 78px;">
-        <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-image: linear-gradient(90deg, rgb(0,41,119), rgb(73,22,71)); height:75px;">
+<body class="body-padding">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top navnav" style="height:75px;">
                 <div class="container">
                 <a class="mr-4 text-white" href="{{ url('/') }}" style="font-size: 22px; font-family: 'Fredoka One', sans-serif;"><b>Manusia Online</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -264,9 +266,12 @@
                             </li>  
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}" style="font-size: 18px; color:white;">{{ __('Daftar') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="font-size: 18px; color:white; margin-right:15px;">{{ __('Daftar') }}</a>
                                 @endif
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#aboutSection" style="font-size: 18px; color:white;">{{ __('Tentang Kami') }}</a>
+                            </li> 
                         @else
                             
                             <li class="nav-item dropdown">
@@ -324,10 +329,10 @@
             </div>
         </nav>
         
-        <main class="py-4">
+        {{-- <main class="py-4"> --}}
             @include('layouts.partials._alerts')
             @yield('content')
-        </main>
+        {{-- </main> --}}
         <br><br>
         <footer class="bg-black small text-center text-dark">
                 <div class="container" style="font-size: 16px">
