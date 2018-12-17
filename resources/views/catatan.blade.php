@@ -14,6 +14,7 @@
         <li>Ubah semua halaman menjadi Bahasa Indonesia (jika memungkinkan)!</li>
         <li>Bug: ketika membuat pos baru, dan tidak semua form terpenuhi. Jika ditekan save, dialihkan ke blank page. Bukan ERROR :( <a href="{{ route('post.create')}}">Coba Sendiri</a> LOGIN DULU TAPI YA !!!</li>
         <li>Bug-bug yang lain akan diberitahukan kemudian</li>
+        <li>Ketika belum login dan mau membaca post, maka setelah diklik judul beritanya agar bisa membaca full, malah dialihkan ke blank page</li>
     </ul>
     <h3>Jika merasa ada menemukan bug baru, bisa dituliskan disini. Catatan ini berfungsi sebagai Log dari project kita. <br>
         Lokasi file ini ada di "resources/views/catatan.blade.php"<br>
